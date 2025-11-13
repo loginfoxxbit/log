@@ -1,84 +1,216 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Strahl & Berthold Advogados Associados S/C</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo CSS externo -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Strahl & Berthold Advogados Associados S/C</title>
+<style>
+:root {
+  --primary: #00c4b4;
+  --bg: #0a0f1a;
+  --text: #e5f7ff;
+  --glass: rgba(255,255,255,0.05);
+  --accent: #38bdf8;
+  --muted: #a0aec0;
+  --radius: 12px;
+  font-family: "Inter", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden;}
+header{
+  background:linear-gradient(120deg,#00101f 0%,#002d44 50%,#00101f 100%);
+  position:relative; text-align:center; color:#fff;
+}
+header img.bg{
+  width:100%; height:400px; object-fit:cover; opacity:0.3;
+}
+header .overlay{
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  background:rgba(0,0,0,0.5);
+}
+header h1{font-size:2.2rem;margin-bottom:10px;color:#fff;text-shadow:0 2px 12px #000;}
+header p{max-width:700px;color:#cbd5e1}
+nav{background:rgba(0,0,0,0.6);padding:10px;position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);}
+nav ul{display:flex;justify-content:center;list-style:none;gap:25px;}
+nav a{color:#e0f7ff;text-decoration:none;font-weight:600;transition:.3s;}
+nav a:hover{color:var(--accent)}
+section{padding:60px 20px;max-width:1100px;margin:auto;}
+h2{text-align:center;margin-bottom:20px;font-size:1.8rem;color:var(--accent);}
+.container{display:grid;gap:20px;}
+.about, .services, .contact, .privacy, .cookies{
+  background:var(--glass);padding:25px;border-radius:var(--radius);
+  box-shadow:0 8px 30px rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+}
+.about img, .services img{width:100%;border-radius:var(--radius);margin-bottom:15px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:768px){.grid2{grid-template-columns:1fr;}}
+button, .btn{
+  background:var(--primary);border:0;color:#002;cursor:pointer;
+  padding:10px 18px;border-radius:8px;font-weight:700;transition:0.3s;
+}
+button:hover, .btn:hover{background:#08e8d1}
+footer{
+  text-align:center;padding:25px;background:rgba(255,255,255,0.03);margin-top:40px;font-size:14px;color:var(--muted);
+}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+/* modal */
+.modal-bg{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:999;
+}
+.modal{
+  background:#08121e;padding:25px;border-radius:var(--radius);
+  max-width:700px;max-height:80vh;overflow:auto;
+  color:#cfeaf0;box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+.modal h3{color:var(--accent);margin-bottom:10px;}
+.modal-bg.active{display:flex;animation:fadein 0.4s;}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.close{background:none;color:#fff;font-size:20px;border:0;cursor:pointer;float:right}
+</style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Strahl & Berthold Advogados Associados S/C</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section id="home">
-            <h2>Bem-vindo à Strahl & Berthold Advogados Associados S/C</h2>
-            <p>Fundada em 20 de dezembro de 1999, nossa empresa oferece serviços jurídicos especializados e atendimento personalizado.</p>
-        </section>
+<!-- HEADER -->
+<header id="home">
+  <img class="bg" src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1200&q=60" alt="Escritório moderno">
+  <div class="overlay">
+    <h1>Strahl & Berthold Advogados Associados S/C</h1>
+    <p>Excelência jurídica com tradição e inovação — desde 1999 em Nova Palma/RS</p>
+    <a href="#contato" class="btn" style="margin-top:15px;">Entrar em Contato</a>
+  </div>
+</header>
 
-        <section id="servicos">
-            <h2>Serviços</h2>
-            <ul>
-                <li>Consultoria Jurídica</li>
-                <li>Assessoria Empresarial</li>
-                <li>Contencioso Judicial</li>
-                <li>Elaboração de Contratos</li>
-                <li>Planejamento Tributário</li>
-            </ul>
-        </section>
+<nav>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="#politicas">Políticas</a></li>
+  </ul>
+</nav>
 
-        <section id="sobre">
-            <h2>Sobre nós</h2>
-            <p>A Strahl & Berthold Advogados Associados S/C é uma Sociedade Simples Limitada com 25 anos de experiência, atuando no ramo jurídico com ética e profissionalismo. Nossos profissionais estão preparados para oferecer soluções jurídicas eficientes e de alta qualidade.</p>
-        </section>
+<!-- SOBRE -->
+<section id="sobre" class="about">
+  <div class="grid2">
+    <div>
+      <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde16?auto=format&fit=crop&w=800&q=60" alt="Equipe de advogados">
+    </div>
+    <div>
+      <h2>Sobre Nós</h2>
+      <p>
+        Fundada em <strong>20 de dezembro de 1999</strong>, a Strahl & Berthold Advogados Associados S/C é uma
+        <strong>Sociedade Simples Limitada</strong> sediada em <strong>Nova Palma - RS</strong>, atuando há mais de
+        25 anos com excelência jurídica, ética e inovação.
+      </p>
+      <p>
+        <b>CNPJ:</b> 04.950.899/0001-64<br>
+        <b>Porte:</b> Microempresa<br>
+        <b>Situação:</b> Ativa<br>
+        <b>Opção Simples:</b> Sim (desde 01/01/2017)
+      </p>
+    </div>
+  </div>
+</section>
 
-        <section id="contato">
-            <h2>Contato</h2>
-            <p><strong>Telefone:</strong> (55) 2661-282</p>
-            <p><strong>Endereço:</strong> Rua Raimundo Alessio, 714, Centro, Nova Palma - RS, 97250-000</p>
-            <p><strong>E-mail:</strong> contato@strahlberthold.com.br</p>
-        </section>
+<!-- SERVIÇOS -->
+<section id="servicos" class="services">
+  <h2>Nossos Serviços</h2>
+  <div class="grid2">
+    <div>
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60" alt="Consultoria jurídica">
+    </div>
+    <div>
+      <ul style="list-style:none;font-size:1.05rem;">
+        <li>⚖️ Consultoria Jurídica Empresarial</li>
+        <li>🧾 Planejamento Tributário</li>
+        <li>📑 Elaboração e Revisão de Contratos</li>
+        <li>🏛️ Contencioso Judicial e Administrativo</li>
+        <li>💼 Assessoria Trabalhista e Cível</li>
+      </ul>
+      <p style="margin-top:15px;">Nossa equipe alia experiência e tecnologia para entregar soluções jurídicas ágeis, precisas e seguras.</p>
+    </div>
+  </div>
+</section>
 
-        <footer>
-            <p>&copy; 2025 Strahl & Berthold Advogados Associados S/C. Todos os direitos reservados.</p>
-            <ul>
-                <li><a href="#politica-de-privacidade">Política de Privacidade</a></li>
-                <li><a href="#politica-de-cookies">Política de Cookies</a></li>
-            </ul>
-        </footer>
-    </main>
+<!-- CONTATO -->
+<section id="contato" class="contact">
+  <h2>Contato</h2>
+  <div class="grid2">
+    <div>
+      <p><b>Endereço:</b><br>Rua Raimundo Alessio, 714 — Casa<br>Centro — Nova Palma/RS<br>CEP 97250-000</p>
+      <p><b>Telefone:</b> (55) 2661-282</p>
+      <p><b>E-mail:</b> <a href="mailto:contato@strahlberthold.com.br" style="color:var(--accent)">contato@strahlberthold.com.br</a></p>
+      <p><b>Horário:</b> Segunda a Sexta, das 9h às 18h</p>
+    </div>
+    <div>
+      <iframe
+        src="https://www.google.com/maps?q=Rua+Raimundo+Alessio+714+Nova+Palma+RS+97250-000&output=embed"
+        width="100%" height="250" style="border-radius:var(--radius);border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
 
-    <!-- Seções de Políticas -->
-    <section id="politica-de-privacidade">
-        <h2>Política de Privacidade</h2>
-        <p>A sua privacidade é muito importante para nós. Nossa política de privacidade descreve as informações que coletamos, como as utilizamos e como as protegemos. Ao utilizar nosso site, você concorda com a coleta e o uso de informações conforme descrito nesta política.</p>
-        <p><strong>Coleta de Informações:</strong> Coletamos informações pessoais, como nome, e-mail e telefone, para fins de comunicação e prestação de serviços jurídicos. Essas informações são tratadas com o máximo de segurança.</p>
-        <p><strong>Uso das Informações:</strong> As informações coletadas são usadas para responder às suas consultas, fornecer serviços e enviar atualizações sobre nossos serviços.</p>
-        <p><strong>Compartilhamento de Informações:</strong> Não compartilhamos suas informações pessoais com terceiros, exceto quando necessário para cumprir obrigações legais ou com parceiros que prestem serviços em nosso nome.</p>
-        <p><strong>Segurança:</strong> Tomamos medidas adequadas para proteger suas informações pessoais, incluindo o uso de criptografia e outros métodos de segurança em nosso site.</p>
-        <p>Se tiver dúvidas ou preocupações sobre nossa política de privacidade, entre em contato conosco através do e-mail: <a href="mailto:contato@strahlberthold.com.br">contato@strahlberthold.com.br</a></p>
-    </section>
+<!-- POLÍTICAS -->
+<section id="politicas" style="text-align:center;">
+  <h2>Políticas</h2>
+  <p>Consulte nossas políticas de <a href="#" onclick="openModal('privacidade')">Privacidade</a> e <a href="#" onclick="openModal('cookies')">Cookies</a>.</p>
+</section>
 
-    <section id="politica-de-cookies">
-        <h2>Política de Cookies</h2>
-        <p>Utilizamos cookies para melhorar a experiência do usuário em nosso site. Ao continuar navegando em nosso site, você concorda com o uso de cookies conforme descrito nesta política.</p>
-        <p><strong>O que são cookies?</strong> Cookies são pequenos arquivos de texto armazenados no seu dispositivo quando você visita um site. Eles ajudam a melhorar a navegação, armazenando preferências e informações de login, entre outras funcionalidades.</p>
-        <p><strong>Cookies Utilizados:</strong> Usamos cookies para rastrear o uso do site, melhorar a funcionalidade e oferecer conteúdos personalizados. Esses cookies podem ser de terceiros, como ferramentas de análise e publicidade.</p>
-        <p><strong>Desativando os Cookies:</strong> Você pode desativar os cookies através das configurações do seu navegador. No entanto, desativar os cookies pode afetar a funcionalidade de alguns recursos do site.</p>
-        <p><strong>Consentimento:</strong> Ao continuar a usar nosso site, você concorda com o uso de cookies conforme descrito nesta política. Se você não concorda, pode optar por desativá-los nas configurações do seu navegador.</p>
-    </section>
+<footer>
+  &copy; 2025 Strahl & Berthold Advogados Associados S/C — Todos os direitos reservados.<br>
+  <a href="#" onclick="openModal('privacidade')">Política de Privacidade</a> | 
+  <a href="#" onclick="openModal('cookies')">Política de Cookies</a>
+</footer>
+
+<!-- MODAIS -->
+<div id="modal-bg" class="modal-bg">
+  <div class="modal" id="modal">
+    <button class="close" onclick="closeModal()">×</button>
+    <h3 id="modal-title"></h3>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const modalBg = document.getElementById("modal-bg");
+const title = document.getElementById("modal-title");
+const body = document.getElementById("modal-body");
+
+function openModal(type){
+  modalBg.classList.add("active");
+  if(type==='privacidade'){
+    title.textContent="Política de Privacidade";
+    body.innerHTML=`
+      <p>Respeitamos sua privacidade. Coletamos apenas os dados essenciais para comunicação e prestação de serviços.</p>
+      <ul>
+        <li>Informações coletadas: nome, e-mail, telefone e mensagens enviadas via formulário.</li>
+        <li>Uso: responder solicitações e prestar serviços jurídicos.</li>
+        <li>Compartilhamento: não compartilhamos dados com terceiros sem consentimento.</li>
+        <li>Segurança: empregamos medidas técnicas e administrativas para proteger seus dados.</li>
+      </ul>
+      <p>Em caso de dúvidas, entre em contato: <a href="mailto:contato@strahlberthold.com.br">contato@strahlberthold.com.br</a></p>`;
+  } else if(type==='cookies'){
+    title.textContent="Política de Cookies";
+    body.innerHTML=`
+      <p>Este site utiliza cookies para melhorar sua experiência de navegação e otimizar serviços.</p>
+      <ul>
+        <li>Cookies funcionais: essenciais para o funcionamento do site.</li>
+        <li>Cookies analíticos: ajudam a entender como o site é usado.</li>
+        <li>Cookies de preferência: armazenam configurações escolhidas por você.</li>
+      </ul>
+      <p>Você pode desativar cookies no navegador. Continuar navegando implica concordância com nossa política de cookies.</p>`;
+  }
+}
+
+function closeModal(){ modalBg.classList.remove("active"); }
+modalBg.addEventListener("click", e=>{if(e.target===modalBg)closeModal();});
+</script>
 
 </body>
 </html>
+
